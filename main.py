@@ -64,7 +64,7 @@ layout = [
 
     [sg.Menu(menu_layout)],
     [sg.Text('> New File <', size=(WIN_W,1), font=('Consolas', 12), key='__INFO__')],
-    [sg.Multiline(size=(WIN_W,WIN_H), font=('Consolas', font_size), key='__BODY__')]
+    [sg.Multiline(size=(WIN_W,WIN_H), font=('Consolas', font_size), key='__BODY__', right_click_menu=['Settings', [file_save, 'Save as', '---', 'Settings', ['Preferences'],]])]
 
 ]
 
