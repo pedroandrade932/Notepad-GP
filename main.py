@@ -175,7 +175,7 @@ while True:
     if first == 'True':
         sg.popup('Welcome!!!', 
         'Welcome to GP Notepad, where you can edit your texts and save them. ', 
-        'If you have questions about how to use GP, go to \nHelp > Manual.', text_color='red')
+        'If you have questions about how to use GP, go to \nHelp > Manual.', text_color='green')
         first = 'False'
     
     if event in (None, 'Exit'):
