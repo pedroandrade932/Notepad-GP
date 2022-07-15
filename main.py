@@ -1,4 +1,5 @@
 #---- Imports ----
+import webbrowser
 import PySimpleGUI as sg
 import pathlib
 
@@ -7,9 +8,9 @@ dados = []
 
 def save():
     arquivo = open('__data__/config.txt', 'wt+')
-    arquivo.write(f'{tema}\n')
-    arquivo.write(f'{font_size}\n')
-    arquivo.write(f'{first}\n')
+    arquivo.write('{}\n'.format(tema))
+    arquivo.write('{}\n'.format(font_size))
+    arquivo.write('{}\n'.format(first))
     arquivo.close()
 
 
@@ -136,8 +137,8 @@ def conf():
     layout = [
         [sg.Text('Settings. (Reinicie o programa para salvar)')],
         [sg.Text('')],
-        [sg.Text('Themes.')],
-        [sg.Text('Theme: '), sg.Button('Dark'), sg.Button('Light')],
+        [sg.Text('Lista de temas.')],
+        [sg.Listbox(['LightBlue1', 'LightBlue4', 'Reddit', 'LightGreen', 'TanBlue', 'Python', 'DarkBLue1', 'DarkBLue4', 'DarkGrey14', 'DarkBrown1', 'DarkBrown2', 'DarkBrown3'], size=(24,6), key='-BOX-')],
         [sg.Text('')],
         [sg.Text('Font size: '), sg.Input('', (5,1), key='font')],
         [sg.Text('')],
@@ -149,14 +150,11 @@ def conf():
         if button == sg.WINDOW_CLOSED:
             window.close()
             break
-        if button == 'Light':
-            tema = 'reddit'
-        if button == 'Dark':
-            tema = 'DarkBrown'
         if button == 'Save':
             if values['font'] == '':
                 values['font'] = font_size
             font_size = int(values['font'])
+            tema = values['-BOX-'][0]
             save()
             window.close()
             br = True
@@ -164,7 +162,7 @@ def conf():
         if button == 'Cancel':
             window.close()
 
-
+swindow = ''
 #---- Eventos. ----
 while True:
     
@@ -196,7 +194,7 @@ while True:
     if event in ('Line Count',):
         line_count()
     if event in ('Manual',):
-        pass
+        webbrowser.open_new('manual.html')
     if event in ('About',):
         about_me()
     if event in ('Preferences',):
