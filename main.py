@@ -135,9 +135,9 @@ br = False
 def conf():
     global tema, br, font_size
     layout = [
-        [sg.Text('Settings. (Reinicie o programa para salvar)')],
+        [sg.Text('Settings. (Restart the program to save)')],
         [sg.Text('')],
-        [sg.Text('Lista de temas.')],
+        [sg.Text('Themes list.')],
         [sg.Listbox(['LightBlue1', 'LightBlue4', 'Reddit', 'LightGreen', 'TanBlue', 'Python', 'DarkBLue1', 'DarkBLue4', 'DarkBLue16', 'DarkGrey14', 'DarkBrown1', 'DarkBrown2', 'DarkBrown3'], size=(24,6), key='-BOX-')],
         [sg.Text('')],
         [sg.Text('Font size: '), sg.Input('', (5,1), key='font')],
