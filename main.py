@@ -197,7 +197,7 @@ while True:
     if event in ('Line Count',):
         line_count()
     if event in ('Manual',):
-        webbrowser.open_new('manual.html')
+        webbrowser.open_new('http://notepad-gp.42web.io/')
     if event in ('About',):
         about_me()
     if event in ('Preferences',):
