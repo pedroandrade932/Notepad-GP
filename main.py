@@ -3,6 +3,8 @@ import webbrowser
 import PySimpleGUI as sg
 import pathlib
 
+from PySimpleGUI.PySimpleGUI import FILE_TYPES_ALL_FILES
+
 #---- Abre as configurações. ----
 dados = []
 
@@ -108,6 +110,7 @@ def save_file_as():
         file = pathlib.Path(filename)
         file.write_text(values.get('__BODY__'))
         window['__INFO__'].update(value=file.absolute())
+        sg.popup_quick_message('file saved successfully.')
         return file
 
 
